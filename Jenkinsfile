@@ -20,4 +20,9 @@ pipeline {
       		   }    
 		}
 	}
+	post {
+		failure {
+			build job: 'dev'
+		}
+	}
 }
