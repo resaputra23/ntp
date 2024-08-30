@@ -13,15 +13,15 @@ pipeline {
             		echo "this is dev"
       		    }  		
 		}
-		//stage('Deploy') {
-		//   when { branch 'prod' }
-        	//   steps {
-         	//	echo "this is prd ready to deploy"
-      		//   }    
-		//}
+		stage('Deploy') {
+		   when { branch 'prod' }
+        	   steps {
+         		echo "this is prd ready to deploy"
+      		   }    
+		}
 	}
 	post {
-		failure {
+		success {
 			build job: 'dev'
 		}
 	}
